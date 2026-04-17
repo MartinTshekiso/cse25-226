@@ -1,45 +1,342 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DTEF - Department of Tertiary Education Financing. Botswana government sponsorship portal for student funding applications.">
+    <meta name="keywords" content="DTEF, tertiary education, sponsorship, Botswana, student funding, application">
+    <title>DTEF - Department of Tertiary Education Financing | Botswana</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-graduation-cap"></i> DTEF Botswana
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About DTEF</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="applicantsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            For Applicants
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="applicantsDropdown">
+                            <li><a class="dropdown-item" href="apply.html">Apply for Sponsorship</a></li>
+                            <li><a class="dropdown-item" href="dashboard.html">Track Application</a></li>
+                            <li><a class="dropdown-item" href="requirements.html">Requirements</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html">Support & FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white ms-2" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<html lang="en"> 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="display-3 fw-bold text-white">Department of Tertiary Education Financing</h1>
+            <p class="lead text-white-50">Empowering Botswana's Students Through Quality Education Sponsorship</p>
+            <p class="text-white mb-4">Apply for government sponsorship and track your application online</p>
+            <div class="hero-buttons">
+                <a href="apply.html" class="btn btn-primary btn-lg me-3">Apply Now</a>
+                <a href="about.html" class="btn btn-outline-light btn-lg">Learn More</a>
+            </div>
+        </div>
+    </section>
 
-<head> 
+    <!-- Main Content -->
+    <main>
+        <!-- Quick Access Section -->
+        <section class="quick-access py-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 mb-4">
+                        <div class="quick-access-card">
+                            <i class="fas fa-file-alt quick-access-icon"></i>
+                            <h3>Apply Online</h3>
+                            <p>Submit your sponsorship application through our secure online portal</p>
+                            <a href="apply.html" class="btn btn-sm btn-primary">Start Application</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="quick-access-card">
+                            <i class="fas fa-search quick-access-icon"></i>
+                            <h3>Track Status</h3>
+                            <p>Monitor your application status in real-time from your dashboard</p>
+                            <a href="dashboard.html" class="btn btn-sm btn-primary">View Dashboard</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="quick-access-card">
+                            <i class="fas fa-book quick-access-icon"></i>
+                            <h3>Requirements</h3>
+                            <p>Review all eligibility criteria and required documentation</p>
+                            <a href="requirements.html" class="btn btn-sm btn-primary">View Requirements</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="quick-access-card">
+                            <i class="fas fa-headset quick-access-icon"></i>
+                            <h3>Get Support</h3>
+                            <p>Find answers to frequently asked questions and contact support</p>
+                            <a href="support.html" class="btn btn-sm btn-primary">Get Help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-   
+        <!-- About DTEF Section -->
+        <section class="about-section py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="mb-4">About DTEF</h2>
+                        <p class="mb-3">The Department of Tertiary Education Financing (DTEF) is a government institution dedicated to providing financial support to deserving Botswana citizens pursuing tertiary education both locally and internationally.</p>
+                        <p class="mb-3">Our mission is to make quality education accessible to all qualified students regardless of their financial background, thereby contributing to national development and economic growth.</p>
+                        <p class="mb-3">Through our modernized online platform, we have significantly reduced application turnaround times and improved accessibility for students across the country.</p>
+                        <a href="about.html" class="btn btn-primary">Learn More About DTEF</a>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="images/placeholder-about.jpg" alt="DTEF Office" class="img-fluid rounded" width="500" height="400">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <title>    </title> 
+        <!-- Key Features Section -->
+        <section class="features-section py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Why Choose DTEF Online Portal?</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <i class="fas fa-clock feature-icon"></i>
+                            <h4>Fast Processing</h4>
+                            <p>Reduced turnaround times from months to weeks with our automated online system</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <i class="fas fa-lock feature-icon"></i>
+                            <h4>Secure & Confidential</h4>
+                            <p>Your personal and financial information is protected with industry-standard encryption</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <i class="fas fa-mobile-alt feature-icon"></i>
+                            <h4>Accessible Anywhere</h4>
+                            <p>Apply from anywhere in Botswana using any device with internet connection</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <i class="fas fa-chart-line feature-icon"></i>
+                            <h4>Real-time Tracking</h4>
+                            <p>Monitor your application status and receive instant notifications</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <i class="fas fa-headset feature-icon"></i>
+                            <h4>24/7 Support</h4>
+                            <p>Get assistance through our comprehensive FAQ and support channels</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-card">
+                            <i class="fas fa-globe feature-icon"></i>
+                            <h4>National Coverage</h4>
+                            <p>Serve students across all regions of Botswana with equal accessibility</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-</head> 
+        <!-- Application Process Section -->
+        <section class="process-section py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Simple Application Process</h2>
+                <div class="row">
+                    <div class="col-md-3 mb-4">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4>Register Account</h4>
+                            <p>Create your secure DTEF account with your email and personal details</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4>Complete Form</h4>
+                            <p>Fill in your educational and financial information accurately</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4>Submit Documents</h4>
+                            <p>Upload required supporting documents and evidence of eligibility</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4>Track & Receive</h4>
+                            <p>Monitor your application and receive decision notification</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<body> 
+        <!-- Statistics Section -->
+        <section class="statistics-section py-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-card">
+                            <div class="stat-number">50,000+</div>
+                            <div class="stat-label">Students Supported</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-card">
+                            <div class="stat-number">P2.5B+</div>
+                            <div class="stat-label">Funding Disbursed</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-card">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Satisfaction Rate</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-card">
+                            <div class="stat-number">14 Days</div>
+                            <div class="stat-label">Avg Processing Time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <header> 
+        <!-- Call to Action Section -->
+        <section class="cta-section py-5 bg-primary text-white">
+            <div class="container text-center">
+                <h2 class="mb-4">Ready to Apply?</h2>
+                <p class="lead mb-4">Start your sponsorship application today and take the first step towards your educational goals</p>
+                <a href="apply.html" class="btn btn-light btn-lg">Begin Application</a>
+            </div>
+        </section>
 
-       
+        <!-- News & Updates Section -->
+        <section class="news-section py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Latest News & Updates</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="news-card">
+                            <img src="images/placeholder-news1.jpg" alt="News 1" class="news-image" width="300" height="200">
+                            <div class="news-content">
+                                <span class="news-date">March 14, 2026</span>
+                                <h5>2026 Sponsorship Applications Now Open</h5>
+                                <p>Applications for the 2026 academic year are now open. Deadline is April 30, 2026.</p>
+                                <a href="#" class="btn btn-sm btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="news-card">
+                            <img src="images/placeholder-news2.jpg" alt="News 2" class="news-image" width="300" height="200">
+                            <div class="news-content">
+                                <span class="news-date">March 10, 2026</span>
+                                <h5>New Online Portal Launched Successfully</h5>
+                                <p>Our modernized online platform is now live, reducing application times significantly.</p>
+                                <a href="#" class="btn btn-sm btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="news-card">
+                            <img src="images/placeholder-news3.jpg" alt="News 3" class="news-image" width="300" height="200">
+                            <div class="news-content">
+                                <span class="news-date">March 5, 2026</span>
+                                <h5>Increased Funding Available for 2026</h5>
+                                <p>Government allocates additional P500 million for tertiary education sponsorship.</p>
+                                <a href="#" class="btn btn-sm btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    </header> 
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>DTEF Botswana</h5>
+                    <p>Department of Tertiary Education Financing - Empowering students through quality education sponsorship</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50">Home</a></li>
+                        <li><a href="about.html" class="text-white-50">About DTEF</a></li>
+                        <li><a href="apply.html" class="text-white-50">Apply</a></li>
+                        <li><a href="support.html" class="text-white-50">Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Information</h5>
+                    <p class="text-white-50">
+                        <i class="fas fa-map-marker-alt"></i> Gaborone, Botswana<br>
+                        <i class="fas fa-phone"></i> +267 391 3000<br>
+                        <i class="fas fa-envelope"></i> info@dtef.gov.bw
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-white-50">
+            <div class="text-center text-white-50">
+                <p>&copy; 2026 Department of Tertiary Education Financing. All rights reserved. | Government of Botswana</p>
+            </div>
+        </div>
+    </footer>
 
- 
-
-    <main> 
-
-       
-
-         
-
-        
-
-    </main> 
-
- 
-
-    <footer> 
-
-         
-
-    </footer> 
-
- 
-
-</body> 
-
-</html> 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
