@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for DTEF sponsorship - Complete your application online">
+    <title>Apply for Sponsorship | DTEF</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-graduation-cap"></i> DTEF Botswana
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About DTEF</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="applicantsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            For Applicants
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="applicantsDropdown">
+                            <li><a class="dropdown-item" href="apply.html">Apply for Sponsorship</a></li>
+                            <li><a class="dropdown-item" href="dashboard.html">Track Application</a></li>
+                            <li><a class="dropdown-item" href="requirements.html">Requirements</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html">Support & FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white ms-2" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header bg-dark text-white py-5">
+        <div class="container">
+            <h1 class="display-4">Apply for Sponsorship</h1>
+            <p class="lead">Complete your application in simple steps</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Application Form -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="form-container">
+                            <div class="form-header mb-5">
+                                <h2>Sponsorship Application Form</h2>
+                                <p class="text-muted">Please fill in all required fields marked with <span class="text-danger">*</span></p>
+                            </div>
+
+                            <form id="applicationForm" class="application-form" novalidate>
+                                <!-- Personal Information Section -->
+                                <div class="form-section mb-5">
+                                    <h4 class="section-title mb-4">Personal Information</h4>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="firstName" name="firstName" required>
+                                            <div class="invalid-feedback">First name is required.</div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="lastName" name="lastName" required>
+                                            <div class="invalid-feedback">Last name is required.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                            <div class="invalid-feedback">Valid email is required.</div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                                            <div class="invalid-feedback">Phone number is required.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="idNumber" class="form-label">National ID Number <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="idNumber" name="idNumber" required>
+                                        <div class="invalid-feedback">National ID number is required.</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="dateOfBirth" class="form-label">Date of Birth <span class="text-danger">*</span></label>
+                                        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" required>
+                                        <div class="invalid-feedback">Date of birth is required.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Educational Information Section -->
+                                <div class="form-section mb-5">
+                                    <h4 class="section-title mb-4">Educational Information</h4>
+                                    
+                                    <div class="mb-3">
+                                        <label for="institution" class="form-label">Institution Name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="institution" name="institution" required>
+                                        <div class="invalid-feedback">Institution name is required.</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="program" class="form-label">Program/Course <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="program" name="program" required>
+                                        <div class="invalid-feedback">Program name is required.</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="studyLevel" class="form-label">Level of Study <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="studyLevel" name="studyLevel" required>
+                                                <option value="">-- Select Level --</option>
+                                                <option value="undergraduate">Undergraduate</option>
+                                                <option value="postgraduate">Postgraduate</option>
+                                                <option value="technical">Technical/Vocational</option>
+                                            </select>
+                                            <div class="invalid-feedback">Please select level of study.</div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="startDate" class="form-label">Start Date <span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control" id="startDate" name="startDate" required>
+                                            <div class="invalid-feedback">Start date is required.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="academicPerformance" class="form-label">Academic Performance (GPA/Grade) <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="academicPerformance" name="academicPerformance" placeholder="e.g., 3.5 or A" required>
+                                        <div class="invalid-feedback">Academic performance is required.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Financial Information Section -->
+                                <div class="form-section mb-5">
+                                    <h4 class="section-title mb-4">Financial Information</h4>
+                                    
+                                    <div class="mb-3">
+                                        <label for="annualIncome" class="form-label">Annual Family Income (P) <span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="annualIncome" name="annualIncome" required>
+                                        <div class="invalid-feedback">Annual income is required.</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="financialNeed" class="form-label">Financial Need Assessment <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="financialNeed" name="financialNeed" required>
+                                            <option value="">-- Select Assessment --</option>
+                                            <option value="high">High Need</option>
+                                            <option value="moderate">Moderate Need</option>
+                                            <option value="low">Low Need</option>
+                                        </select>
+                                        <div class="invalid-feedback">Please select financial need assessment.</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="otherSupport" class="form-label">Other Financial Support</label>
+                                        <textarea class="form-control" id="otherSupport" name="otherSupport" rows="3" placeholder="Describe any other financial support you receive"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Document Upload Section -->
+                                <div class="form-section mb-5">
+                                    <h4 class="section-title mb-4">Required Documents</h4>
+                                    
+                                    <div class="mb-3">
+                                        <label for="idCopy" class="form-label">Copy of National ID <span class="text-danger">*</span></label>
+                                        <input type="file" class="form-control" id="idCopy" name="idCopy" accept=".pdf,.jpg,.jpeg,.png" required>
+                                        <small class="text-muted">PDF, JPG, or PNG (Max 5MB)</small>
+                                        <div class="invalid-feedback">ID copy is required.</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="academicRecords" class="form-label">Academic Records <span class="text-danger">*</span></label>
+                                        <input type="file" class="form-control" id="academicRecords" name="academicRecords" accept=".pdf,.jpg,.jpeg,.png" required>
+                                        <small class="text-muted">PDF, JPG, or PNG (Max 5MB)</small>
+                                        <div class="invalid-feedback">Academic records are required.</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="proofOfAdmission" class="form-label">Proof of Admission <span class="text-danger">*</span></label>
+                                        <input type="file" class="form-control" id="proofOfAdmission" name="proofOfAdmission" accept=".pdf,.jpg,.jpeg,.png" required>
+                                        <small class="text-muted">PDF, JPG, or PNG (Max 5MB)</small>
+                                        <div class="invalid-feedback">Proof of admission is required.</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="incomeVerification" class="form-label">Income Verification Document <span class="text-danger">*</span></label>
+                                        <input type="file" class="form-control" id="incomeVerification" name="incomeVerification" accept=".pdf,.jpg,.jpeg,.png" required>
+                                        <small class="text-muted">PDF, JPG, or PNG (Max 5MB)</small>
+                                        <div class="invalid-feedback">Income verification is required.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Agreements Section -->
+                                <div class="form-section mb-5">
+                                    <h4 class="section-title mb-4">Agreements & Declarations</h4>
+                                    
+                                    <div class="mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="truthfulness" name="truthfulness" required>
+                                            <label class="form-check-label" for="truthfulness">
+                                                I declare that all information provided in this application is true and accurate <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="invalid-feedback">You must agree to the declaration.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+                                            <label class="form-check-label" for="terms">
+                                                I agree to the terms and conditions of DTEF sponsorship <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="invalid-feedback">You must agree to the terms and conditions.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="privacy" name="privacy" required>
+                                            <label class="form-check-label" for="privacy">
+                                                I consent to the processing of my personal data in accordance with DTEF privacy policy <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="invalid-feedback">You must consent to privacy policy.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="d-grid gap-2 mb-4">
+                                    <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
+                                </div>
+
+                                <div class="alert alert-info" role="alert">
+                                    <i class="fas fa-info-circle"></i> Your application will be reviewed within 14 days. You will receive updates via email and SMS.
+                                </div>
+                            </form>
+
+                            <!-- Success Message -->
+                            <div id="successMessage" class="alert alert-success alert-dismissible fade show d-none" role="alert">
+                                <i class="fas fa-check-circle"></i> <strong>Application Submitted!</strong> Your application has been received successfully. Please check your email for confirmation.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Box -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="info-box">
+                            <h5><i class="fas fa-clock"></i> Processing Timeline</h5>
+                            <p>Applications are typically processed within 14 days. You will receive updates via email and SMS throughout the review process.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="info-box">
+                            <h5><i class="fas fa-question-circle"></i> Need Help?</h5>
+                            <p>Visit our <a href="support.html">Support & FAQ</a> page or <a href="contact.html">contact us</a> if you have any questions about the application process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>DTEF Botswana</h5>
+                    <p>Department of Tertiary Education Financing - Empowering students through quality education sponsorship</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50">Home</a></li>
+                        <li><a href="about.html" class="text-white-50">About DTEF</a></li>
+                        <li><a href="apply.html" class="text-white-50">Apply</a></li>
+                        <li><a href="support.html" class="text-white-50">Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Information</h5>
+                    <p class="text-white-50">
+                        <i class="fas fa-map-marker-alt"></i> Gaborone, Botswana<br>
+                        <i class="fas fa-phone"></i> +267 391 3000<br>
+                        <i class="fas fa-envelope"></i> info@dtef.gov.bw
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-white-50">
+            <div class="text-center text-white-50">
+                <p>&copy; 2026 Department of Tertiary Education Financing. All rights reserved. | Government of Botswana</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
