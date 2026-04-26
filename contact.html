@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact DTEF - Department of Tertiary Education Financing">
+    <title>Contact Us | DTEF</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-graduation-cap"></i> DTEF Botswana
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About DTEF</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="applicantsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            For Applicants
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="applicantsDropdown">
+                            <li><a class="dropdown-item" href="apply.html">Apply for Sponsorship</a></li>
+                            <li><a class="dropdown-item" href="dashboard.html">Track Application</a></li>
+                            <li><a class="dropdown-item" href="requirements.html">Requirements</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html">Support & FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white ms-2" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header bg-dark text-white py-5">
+        <div class="container">
+            <h1 class="display-4">Contact Us</h1>
+            <p class="lead">We're here to help. Get in touch with DTEF</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <!-- Contact Information -->
+                    <div class="col-lg-4 mb-5">
+                        <h3 class="mb-4">Contact Information</h3>
+                        
+                        <div class="contact-info mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Physical Address</h5>
+                                <p>Department of Tertiary Education Financing<br>
+                                   Ministry of Education Building<br>
+                                   Gaborone, Botswana</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Phone</h5>
+                                <p>Main: +267 391 3000<br>
+                                   Support: +267 391 3010<br>
+                                   Fax: +267 391 3099</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Email</h5>
+                                <p>General: info@dtef.gov.bw<br>
+                                   Support: support@dtef.gov.bw<br>
+                                   Feedback: feedback@dtef.gov.bw</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info mb-4">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Office Hours</h5>
+                                <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
+                                   Saturday & Sunday: Closed<br>
+                                   Public Holidays: Closed</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Online Support</h5>
+                                <p>Live Chat: Available Mon-Fri 9:00 AM - 4:00 PM<br>
+                                   Email Response: Within 24 hours<br>
+                                   Portal Support: 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="col-lg-8">
+                        <h3 class="mb-4">Send us a Message</h3>
+                        
+                        <form id="contactForm" class="contact-form" novalidate>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="contactName" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="contactName" name="contactName" required>
+                                    <div class="invalid-feedback">Name is required.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="contactEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="contactEmail" name="contactEmail" required>
+                                    <div class="invalid-feedback">Valid email is required.</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="contactPhone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="contactPhone" name="contactPhone">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="contactSubject" class="form-label">Subject <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="contactSubject" name="contactSubject" required>
+                                        <option value="">-- Select Subject --</option>
+                                        <option value="application">Application Inquiry</option>
+                                        <option value="technical">Technical Support</option>
+                                        <option value="feedback">Feedback</option>
+                                        <option value="complaint">Complaint</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a subject.</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="contactMessage" class="form-label">Message <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="contactMessage" name="contactMessage" rows="6" placeholder="Please provide details about your inquiry..." required></textarea>
+                                <div class="invalid-feedback">Message is required.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="contactConsent" name="contactConsent" required>
+                                    <label class="form-check-label" for="contactConsent">
+                                        I consent to DTEF contacting me regarding this inquiry <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="invalid-feedback">You must consent to be contacted.</div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                            </div>
+
+                            <div id="contactSuccess" class="alert alert-success alert-dismissible fade show d-none mt-3" role="alert">
+                                <i class="fas fa-check-circle"></i> <strong>Message Sent!</strong> Thank you for contacting DTEF. We will respond to your inquiry within 24 hours.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h3 class="text-center mb-4">Our Location</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.8230482039863!2d25.926110676659467!3d-24.628363459999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a4a7d7d7d7d7d7d%3A0x1a4a7d7d7d7d7d7d!2sGaborone%2C%20Botswana!5e0!3m2!1sen!2sbw!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Support Options -->
+        <section class="py-5">
+            <div class="container">
+                <h3 class="text-center mb-5">Other Ways to Reach Us</h3>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="support-option">
+                            <i class="fas fa-comments"></i>
+                            <h5>Live Chat</h5>
+                            <p>Chat with our support team in real-time during business hours</p>
+                            <a href="#" class="btn btn-sm btn-primary">Start Chat</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="support-option">
+                            <i class="fas fa-question-circle"></i>
+                            <h5>FAQ & Help</h5>
+                            <p>Browse our comprehensive FAQ section for quick answers</p>
+                            <a href="support.html" class="btn btn-sm btn-primary">View FAQ</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="support-option">
+                            <i class="fas fa-file-alt"></i>
+                            <h5>Documentation</h5>
+                            <p>Access guides and documentation for the application process</p>
+                            <a href="requirements.html" class="btn btn-sm btn-primary">View Docs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>DTEF Botswana</h5>
+                    <p>Department of Tertiary Education Financing - Empowering students through quality education sponsorship</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50">Home</a></li>
+                        <li><a href="about.html" class="text-white-50">About DTEF</a></li>
+                        <li><a href="apply.html" class="text-white-50">Apply</a></li>
+                        <li><a href="support.html" class="text-white-50">Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Information</h5>
+                    <p class="text-white-50">
+                        <i class="fas fa-map-marker-alt"></i> Gaborone, Botswana<br>
+                        <i class="fas fa-phone"></i> +267 391 3000<br>
+                        <i class="fas fa-envelope"></i> info@dtef.gov.bw
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-white-50">
+            <div class="text-center text-white-50">
+                <p>&copy; 2026 Department of Tertiary Education Financing. All rights reserved. | Government of Botswana</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
