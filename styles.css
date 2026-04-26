@@ -1,490 +1,1196 @@
-// ========================================
-// DTEF Website - JavaScript
-// ========================================
+/* ========================================
+   DTEF Website - Main Stylesheet
+   ======================================== */
 
-// ========================================
-// Form Validation
-// ========================================
-
-// Application Form Validation
-const applicationForm = document.getElementById('applicationForm');
-if (applicationForm) {
-    applicationForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        if (!this.checkValidity() === false) {
-            event.stopPropagation();
-        }
-        
-        this.classList.add('was-validated');
-        
-        // If form is valid, show success message
-        if (this.checkValidity() === false) {
-            console.log('Form has validation errors');
-        } else {
-            // Show success message
-            const successMessage = document.getElementById('successMessage');
-            if (successMessage) {
-                successMessage.classList.remove('d-none');
-                // Reset form after 2 seconds
-                setTimeout(() => {
-                    this.reset();
-                    this.classList.remove('was-validated');
-                    successMessage.classList.add('d-none');
-                }, 2000);
-            }
-        }
-    }, false);
+/* Root Variables */
+:root {
+    --primary-color: #003d82;
+    --secondary-color: #0066cc;
+    --accent-color: #ff6b35;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-bg: #f8f9fa;
+    --dark-bg: #1a1a1a;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --border-color: #e0e0e0;
+    --transition: all 0.3s ease;
 }
 
-// Contact Form Validation
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        if (!this.checkValidity() === false) {
-            event.stopPropagation();
-        }
-        
-        this.classList.add('was-validated');
-        
-        if (this.checkValidity() === false) {
-            console.log('Form has validation errors');
-        } else {
-            const successMessage = document.getElementById('contactSuccess');
-            if (successMessage) {
-                successMessage.classList.remove('d-none');
-                setTimeout(() => {
-                    this.reset();
-                    this.classList.remove('was-validated');
-                    successMessage.classList.add('d-none');
-                }, 3000);
-            }
-        }
-    }, false);
+/* ========================================
+   Global Styles
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-// Applicant Login Form Validation
-const applicantLoginForm = document.getElementById('applicantLoginForm');
-if (applicantLoginForm) {
-    applicantLoginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        if (!this.checkValidity() === false) {
-            event.stopPropagation();
-        }
-        
-        this.classList.add('was-validated');
-        
-        if (this.checkValidity() === false) {
-            console.log('Form has validation errors');
-        } else {
-            const successMessage = document.getElementById('loginSuccess');
-            if (successMessage) {
-                successMessage.classList.remove('d-none');
-                setTimeout(() => {
-                    // Redirect to dashboard
-                    window.location.href = 'dashboard.html';
-                }, 1500);
-            }
-        }
-    }, false);
+html {
+    scroll-behavior: smooth;
 }
 
-// Admin Login Form Validation
-const adminLoginForm = document.getElementById('adminLoginForm');
-if (adminLoginForm) {
-    adminLoginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        if (!this.checkValidity() === false) {
-            event.stopPropagation();
-        }
-        
-        this.classList.add('was-validated');
-        
-        if (this.checkValidity() === false) {
-            console.log('Form has validation errors');
-        } else {
-            const successMessage = document.getElementById('loginSuccess');
-            if (successMessage) {
-                successMessage.classList.remove('d-none');
-                setTimeout(() => {
-                    // Redirect to admin dashboard
-                    alert('Admin login successful! Redirecting to admin dashboard...');
-                    // window.location.href = 'admin/dashboard.html';
-                }, 1500);
-            }
-        }
-    }, false);
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: #ffffff;
 }
 
-// ========================================
-// FAQ Search Functionality
-// ========================================
-
-const faqSearch = document.getElementById('faqSearch');
-if (faqSearch) {
-    faqSearch.addEventListener('keyup', function() {
-        const searchTerm = this.value.toLowerCase();
-        const accordionItems = document.querySelectorAll('.accordion-item');
-        
-        accordionItems.forEach(item => {
-            const buttonText = item.querySelector('.accordion-button').textContent.toLowerCase();
-            const bodyText = item.querySelector('.accordion-body').textContent.toLowerCase();
-            
-            if (buttonText.includes(searchTerm) || bodyText.includes(searchTerm)) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: var(--transition);
 }
 
-// ========================================
-// Smooth Scrolling for Anchor Links
-// ========================================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href !== '#' && document.querySelector(href)) {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// ========================================
-// Scroll Animation
-// ========================================
-
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe all feature cards, mission cards, etc.
-document.querySelectorAll('.feature-card, .mission-card, .value-card, .program-card, .quick-access-card').forEach(el => {
-    observer.observe(el);
-});
-
-// ========================================
-// Active Navigation Link
-// ========================================
-
-function setActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
+a:hover {
+    color: var(--primary-color);
 }
 
-// Call on page load
-document.addEventListener('DOMContentLoaded', setActiveNavLink);
+/* ========================================
+   Navigation Bar
+   ======================================== */
 
-// ========================================
-// File Upload Preview
-// ========================================
-
-const fileInputs = document.querySelectorAll('input[type="file"]');
-fileInputs.forEach(input => {
-    input.addEventListener('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const fileName = file.name;
-            const fileSize = (file.size / 1024).toFixed(2); // Convert to KB
-            
-            // Validate file size (max 5MB)
-            if (file.size > 5 * 1024 * 1024) {
-                this.setCustomValidity('File size must not exceed 5MB');
-                this.classList.add('is-invalid');
-            } else {
-                this.setCustomValidity('');
-                this.classList.remove('is-invalid');
-                this.classList.add('is-valid');
-            }
-            
-            // Show file info
-            console.log(`File: ${fileName}, Size: ${fileSize}KB`);
-        }
-    });
-});
-
-// ========================================
-// Email Validation
-// ========================================
-
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-// ========================================
-// Phone Number Formatting
-// ========================================
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #ffffff !important;
+}
 
-const phoneInputs = document.querySelectorAll('input[type="tel"]');
-phoneInputs.forEach(input => {
-    input.addEventListener('input', function() {
-        // Remove non-numeric characters
-        let value = this.value.replace(/\D/g, '');
-        
-        // Format as phone number
-        if (value.length > 0) {
-            if (value.length <= 3) {
-                value = value;
-            } else if (value.length <= 6) {
-                value = value.slice(0, 3) + ' ' + value.slice(3);
-            } else {
-                value = value.slice(0, 3) + ' ' + value.slice(3, 6) + ' ' + value.slice(6, 10);
-            }
-        }
-        
-        this.value = value;
-    });
-});
+.navbar-brand i {
+    margin-right: 0.5rem;
+}
 
-// ========================================
-// Date Validation
-// ========================================
+.nav-link {
+    transition: var(--transition);
+    font-weight: 500;
+}
 
-const dateInputs = document.querySelectorAll('input[type="date"]');
-dateInputs.forEach(input => {
-    input.addEventListener('change', function() {
-        const selectedDate = new Date(this.value);
-        const today = new Date();
-        
-        // For birth date, ensure person is at least 16 years old
-        if (this.id === 'dateOfBirth') {
-            const age = today.getFullYear() - selectedDate.getFullYear();
-            const monthDiff = today.getMonth() - selectedDate.getMonth();
-            
-            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < selectedDate.getDate())) {
-                age--;
-            }
-            
-            if (age < 16) {
-                this.setCustomValidity('You must be at least 16 years old');
-                this.classList.add('is-invalid');
-            } else {
-                this.setCustomValidity('');
-                this.classList.remove('is-invalid');
-            }
-        }
-        
-        // For start date, ensure it's in the future
-        if (this.id === 'startDate') {
-            if (selectedDate < today) {
-                this.setCustomValidity('Start date must be in the future');
-                this.classList.add('is-invalid');
-            } else {
-                this.setCustomValidity('');
-                this.classList.remove('is-invalid');
-            }
-        }
-    });
-});
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
 
-// ========================================
-// Dropdown Menu Functionality
-// ========================================
+.nav-link.active {
+    color: var(--accent-color) !important;
+    border-bottom: 2px solid var(--accent-color);
+}
 
-const dropdownButtons = document.querySelectorAll('.dropdown-toggle');
-dropdownButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        const menu = this.nextElementSibling;
-        if (menu && menu.classList.contains('dropdown-menu')) {
-            menu.classList.toggle('show');
-        }
-    });
-});
+/* ========================================
+   Hero Section
+   ======================================== */
 
-// Close dropdown when clicking outside
-document.addEventListener('click', function(e) {
-    if (!e.target.closest('.dropdown')) {
-        document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-            menu.classList.remove('show');
-        });
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="30" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="1200" height="600" fill="url(%23pattern)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section .lead {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ========================================
+   Page Header
+   ======================================== */
+
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.page-header .lead {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ========================================
+   Quick Access Section
+   ======================================== */
+
+.quick-access {
+    background: white;
+    padding: 60px 20px;
+}
+
+.quick-access-card {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: var(--transition);
+    height: 100%;
+}
+
+.quick-access-card:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.quick-access-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.quick-access-card h3 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.quick-access-card p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   Feature Cards
+   ======================================== */
+
+.feature-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: var(--transition);
+    height: 100%;
+}
+
+.feature-card:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-card h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+    color: var(--text-light);
+}
+
+/* ========================================
+   Process Steps
+   ======================================== */
+
+.process-step {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.process-step h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.process-step p {
+    color: var(--text-light);
+}
+
+/* ========================================
+   Statistics Section
+   ======================================== */
+
+.stat-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* ========================================
+   Mission & Vision Cards
+   ======================================== */
+
+.mission-card {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.mission-card:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mission-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.mission-card h3 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.mission-card p {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* ========================================
+   Value Cards
+   ======================================== */
+
+.value-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    transition: var(--transition);
+}
+
+.value-card:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.value-card h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.value-card p {
+    color: var(--text-light);
+}
+
+/* ========================================
+   Achievement Items
+   ======================================== */
+
+.achievement-item {
+    background: white;
+    border-left: 4px solid var(--secondary-color);
+    padding: 20px;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.achievement-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-item h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-item p {
+    color: var(--text-light);
+}
+
+/* ========================================
+   Program Cards
+   ======================================== */
+
+.program-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.program-card:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.program-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.program-card h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.program-card p {
+    color: var(--text-light);
+}
+
+/* ========================================
+   Form Styles
+   ======================================== */
+
+.form-container {
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 2rem;
+}
+
+.form-header h2 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.form-section {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: var(--transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+}
+
+.form-label {
+    color: var(--text-dark);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.invalid-feedback {
+    color: var(--danger-color);
+    font-size: 0.875rem;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* ========================================
+   Application Card
+   ======================================== */
+
+.application-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.card-header {
+    background: var(--light-bg);
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+/* ========================================
+   Timeline
+   ======================================== */
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-marker {
+    width: 40px;
+    height: 40px;
+    background: var(--light-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-item.completed .timeline-marker {
+    background: var(--success-color);
+    border-color: var(--success-color);
+    color: white;
+}
+
+.timeline-item.active .timeline-marker {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    width: 2px;
+    height: calc(100% + 30px);
+    background: var(--border-color);
+    z-index: 1;
+}
+
+.timeline-item:last-child::before {
+    display: none;
+}
+
+.timeline-content h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-content small {
+    color: var(--text-light);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.7);
     }
-});
-
-// ========================================
-// Notification System
-// ========================================
-
-function showNotification(message, type = 'info', duration = 3000) {
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
-    alertDiv.setAttribute('role', 'alert');
-    alertDiv.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    `;
-    
-    document.body.insertBefore(alertDiv, document.body.firstChild);
-    
-    setTimeout(() => {
-        alertDiv.remove();
-    }, duration);
-}
-
-// ========================================
-// Local Storage for Form Data
-// ========================================
-
-// Save form data to local storage
-function saveFormData(formId) {
-    const form = document.getElementById(formId);
-    if (form) {
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-        localStorage.setItem(`form_${formId}`, JSON.stringify(data));
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 102, 204, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 204, 0);
     }
 }
 
-// Load form data from local storage
-function loadFormData(formId) {
-    const form = document.getElementById(formId);
-    if (form) {
-        const savedData = localStorage.getItem(`form_${formId}`);
-        if (savedData) {
-            const data = JSON.parse(savedData);
-            Object.keys(data).forEach(key => {
-                const field = form.elements[key];
-                if (field) {
-                    field.value = data[key];
-                }
-            });
-        }
+/* ========================================
+   News Cards
+   ======================================== */
+
+.news-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.news-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.news-card:hover .news-image {
+    transform: scale(1.05);
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-date {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.news-card h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.news-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   Contact Information
+   ======================================== */
+
+.contact-info {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-details h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.contact-details p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* ========================================
+   Support Options
+   ======================================== */
+
+.support-option {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.support-option:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.support-option i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.support-option h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.support-option p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   Requirements
+   ======================================== */
+
+.requirements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.requirement-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.requirement-item:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.requirement-icon {
+    font-size: 1.5rem;
+    color: var(--success-color);
+    flex-shrink: 0;
+}
+
+.requirement-content h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.requirement-content p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* ========================================
+   Documents List
+   ======================================== */
+
+.documents-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.document-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.document-item:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.document-icon {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    flex-shrink: 0;
+}
+
+.document-content h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.document-content p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* ========================================
+   Login Section
+   ======================================== */
+
+.login-section {
+    background: var(--light-bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.login-icon {
+    font-size: 4rem;
+    color: var(--secondary-color);
+}
+
+.login-header h2 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.login-header p {
+    color: var(--text-light);
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-light);
+    border-bottom: 2px solid transparent;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    background: none;
+}
+
+.login-form .btn {
+    font-weight: 600;
+}
+
+/* ========================================
+   CTA Section
+   ======================================== */
+
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.cta-box {
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    color: var(--primary-color);
+}
+
+.cta-box h3 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+footer {
+    background: var(--dark-bg);
+    color: white;
+}
+
+footer h5 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: white;
+}
+
+footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer hr {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .feature-icon,
+    .mission-icon,
+    .program-icon {
+        font-size: 2rem;
     }
 }
 
-// Auto-save form data on input
-document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('input', function() {
-        saveFormData(this.id);
-    });
-});
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 20px;
+    }
 
-// Load form data on page load
-document.addEventListener('DOMContentLoaded', function() {
-    const forms = document.querySelectorAll('form[id]');
-    forms.forEach(form => {
-        loadFormData(form.id);
-    });
-});
+    .hero-section h1 {
+        font-size: 2rem;
+    }
 
-// ========================================
-// Print Functionality
-// ========================================
+    .hero-section .lead {
+        font-size: 1.1rem;
+    }
 
-function printPage() {
-    window.print();
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .page-header .lead {
+        font-size: 1rem;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .quick-access-card,
+    .feature-card,
+    .mission-card,
+    .value-card,
+    .program-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+
+    .contact-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .login-container {
+        padding: 20px;
+    }
+
+    .nav-tabs {
+        flex-wrap: wrap;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
 }
 
-// ========================================
-// Accessibility Enhancements
-// ========================================
-
-// Add keyboard navigation support
-document.addEventListener('keydown', function(e) {
-    // ESC key to close modals
-    if (e.key === 'Escape') {
-        document.querySelectorAll('.modal.show').forEach(modal => {
-            modal.classList.remove('show');
-        });
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 1.5rem;
     }
-    
-    // Tab key for form navigation
-    if (e.key === 'Tab') {
-        document.body.classList.add('keyboard-nav');
+
+    .hero-section .lead {
+        font-size: 1rem;
     }
-});
 
-// Remove keyboard-nav class on mouse click
-document.addEventListener('mousedown', function() {
-    document.body.classList.remove('keyboard-nav');
-});
+    .page-header h1 {
+        font-size: 1.3rem;
+    }
 
-// ========================================
-// Performance Optimization
-// ========================================
+    .page-header .lead {
+        font-size: 0.9rem;
+    }
 
-// Lazy load images
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.add('loaded');
-                observer.unobserve(img);
-            }
-        });
-    });
-    
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
+    .form-container {
+        padding: 15px;
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+    }
+
+    .feature-icon,
+    .mission-icon,
+    .program-icon {
+        font-size: 1.5rem;
+    }
+
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-icon {
+        font-size: 3rem;
+    }
+
+    .cta-section {
+        padding: 40px 15px;
+    }
+
+    .cta-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
+    }
+
+    .cta-box {
+        padding: 20px;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer h5 {
+        margin-top: 1.5rem;
+    }
 }
 
-// ========================================
-// Error Handling
-// ========================================
+/* ========================================
+   Utility Classes
+   ======================================== */
 
-window.addEventListener('error', function(event) {
-    console.error('Error:', event.error);
-    // You can send error logs to a server here
-});
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
 
-// ========================================
-// Initialization
-// ========================================
+.bg-light {
+    background-color: var(--light-bg) !important;
+}
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DTEF Website loaded successfully');
-    
-    // Initialize tooltips if Bootstrap is available
-    if (typeof bootstrap !== 'undefined') {
-        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
+.btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-light {
+    color: white;
+    border-color: white;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+.alert {
+    border-radius: 8px;
+    border: none;
+}
+
+.alert-info {
+    background-color: #e7f3ff;
+    color: #004085;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-});
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-// ========================================
-// Export Functions for External Use
-// ========================================
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
 
-window.DTEF = {
-    showNotification: showNotification,
-    validateEmail: validateEmail,
-    saveFormData: saveFormData,
-    loadFormData: loadFormData,
-    printPage: printPage
-};
+/* Print Styles */
+@media print {
+    .navbar,
+    footer,
+    .hero-buttons,
+    .btn {
+        display: none;
+    }
+
+    body {
+        background: white;
+    }
+
+    .page-header {
+        page-break-after: avoid;
+    }
+}
