@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DTEF Login - Access your sponsorship application account">
+    <title>Login | DTEF</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-graduation-cap"></i> DTEF Botswana
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About DTEF</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="apply.html">Apply</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html">Support</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="login-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="login-container">
+                        <div class="login-header text-center mb-5">
+                            <i class="fas fa-graduation-cap login-icon"></i>
+                            <h2 class="mt-3">DTEF Portal</h2>
+                            <p class="text-muted">Access your sponsorship application account</p>
+                        </div>
+
+                        <!-- Login Tabs -->
+                        <ul class="nav nav-tabs mb-4" id="loginTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="applicant-tab" data-bs-toggle="tab" data-bs-target="#applicant" type="button" role="tab" aria-controls="applicant" aria-selected="true">
+                                    <i class="fas fa-user"></i> Applicant
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button" role="tab" aria-controls="admin" aria-selected="false">
+                                    <i class="fas fa-lock"></i> Admin
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="loginTabContent">
+                            <!-- Applicant Login -->
+                            <div class="tab-pane fade show active" id="applicant" role="tabpanel" aria-labelledby="applicant-tab">
+                                <form id="applicantLoginForm" class="login-form" novalidate>
+                                    <div class="mb-3">
+                                        <label for="applicantEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="applicantEmail" name="applicantEmail" placeholder="your.email@example.com" required>
+                                        <div class="invalid-feedback">Valid email is required.</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="applicantPassword" class="form-label">Password <span class="text-danger">*</span></label>
+                                        <input type="password" class="form-control" id="applicantPassword" name="applicantPassword" placeholder="Enter your password" required>
+                                        <div class="invalid-feedback">Password is required.</div>
+                                    </div>
+
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">
+                                            Remember me
+                                        </label>
+                                    </div>
+
+                                    <div class="d-grid gap-2 mb-3">
+                                        <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <p class="mb-2"><a href="#" class="text-decoration-none">Forgot your password?</a></p>
+                                        <p>Don't have an account? <a href="apply.html" class="text-decoration-none">Create one here</a></p>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Admin Login -->
+                            <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+                                <form id="adminLoginForm" class="login-form" novalidate>
+                                    <div class="alert alert-warning" role="alert">
+                                        <i class="fas fa-lock"></i> This section is for DTEF staff only. Unauthorized access attempts are logged and monitored.
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="adminUsername" class="form-label">Username <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="adminUsername" name="adminUsername" placeholder="Enter your username" required>
+                                        <div class="invalid-feedback">Username is required.</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="adminPassword" class="form-label">Password <span class="text-danger">*</span></label>
+                                        <input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Enter your password" required>
+                                        <div class="invalid-feedback">Password is required.</div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="securityCode" class="form-label">Security Code <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="securityCode" name="securityCode" placeholder="Enter security code" required>
+                                        <div class="invalid-feedback">Security code is required.</div>
+                                    </div>
+
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="adminRemember" name="adminRemember">
+                                        <label class="form-check-label" for="adminRemember">
+                                            Remember me
+                                        </label>
+                                    </div>
+
+                                    <div class="d-grid gap-2 mb-3">
+                                        <button type="submit" class="btn btn-danger btn-lg">Admin Login</button>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <p><a href="#" class="text-decoration-none">Forgot your credentials?</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Success Message -->
+                        <div id="loginSuccess" class="alert alert-success alert-dismissible fade show d-none mt-3" role="alert">
+                            <i class="fas fa-check-circle"></i> <strong>Login Successful!</strong> Redirecting to your dashboard...
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h3 class="text-center mb-5">Portal Features</h3>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-file-alt feature-icon"></i>
+                        <h5>Submit Applications</h5>
+                        <p>Complete and submit your sponsorship application online with secure document upload</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-search feature-icon"></i>
+                        <h5>Track Status</h5>
+                        <p>Monitor your application status in real-time and receive instant notifications</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-lock feature-icon"></i>
+                        <h5>Secure Access</h5>
+                        <p>Your personal information is protected with industry-standard encryption</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Notice -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="alert alert-info" role="alert">
+                        <h5><i class="fas fa-shield-alt"></i> Security Notice</h5>
+                        <ul class="mb-0">
+                            <li>Never share your login credentials with anyone</li>
+                            <li>Always log out when finished, especially on shared computers</li>
+                            <li>Use a strong password with uppercase, lowercase, numbers, and symbols</li>
+                            <li>Report any suspicious activity immediately to support@dtef.gov.bw</li>
+                            <li>This portal uses SSL encryption to protect your data</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>DTEF Botswana</h5>
+                    <p>Department of Tertiary Education Financing - Empowering students through quality education sponsorship</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50">Home</a></li>
+                        <li><a href="about.html" class="text-white-50">About DTEF</a></li>
+                        <li><a href="apply.html" class="text-white-50">Apply</a></li>
+                        <li><a href="support.html" class="text-white-50">Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Information</h5>
+                    <p class="text-white-50">
+                        <i class="fas fa-map-marker-alt"></i> Gaborone, Botswana<br>
+                        <i class="fas fa-phone"></i> +267 391 3000<br>
+                        <i class="fas fa-envelope"></i> info@dtef.gov.bw
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-white-50">
+            <div class="text-center text-white-50">
+                <p>&copy; 2026 Department of Tertiary Education Financing. All rights reserved. | Government of Botswana</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
