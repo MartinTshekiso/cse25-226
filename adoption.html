@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for dog adoption at PawConnect Botswana. Fill out our adoption form to start your journey.">
+    <title>Dog Adoption Form - PawConnect Botswana</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ======== NAVIGATION BAR ======== -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">PawConnect Botswana</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dogs.html">Dogs Available</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="adoption.html">Adopt a Dog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======== PAGE HERO ======== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Dog Adoption Application Form</h1>
+                <p>Start your journey to bringing a new family member home</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== ADOPTION FORM SECTION ======== -->
+    <section class="section-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card p-4 shadow-custom rounded-custom">
+                        <h3 class="mb-4 text-center">Adoption Application</h3>
+                        
+                        <form class="needs-validation" onsubmit="handleAdoptionSubmit(event)" novalidate>
+                            <!-- SECTION 1: PERSONAL INFORMATION -->
+                            <div class="mb-4">
+                                <h5 class="text-primary mb-3">Personal Information</h5>
+                                
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">First Name *</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName" required>
+                                        <div class="invalid-feedback">
+                                            First name is required.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Last Name *</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName" required>
+                                        <div class="invalid-feedback">
+                                            Last name is required.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-1">
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid email address.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone Number *</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                                        <div class="invalid-feedback">
+                                            Phone number is required.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-1">
+                                    <div class="col-12">
+                                        <label for="address" class="form-label">Residential Address *</label>
+                                        <input type="text" class="form-control" id="address" name="address" required>
+                                        <div class="invalid-feedback">
+                                            Address is required.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-1">
+                                    <div class="col-md-6">
+                                        <label for="city" class="form-label">City *</label>
+                                        <input type="text" class="form-control" id="city" name="city" required>
+                                        <div class="invalid-feedback">
+                                            City is required.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="phone-verify" class="form-label">Alternate Contact Number</label>
+                                        <input type="tel" class="form-control" id="phone-verify" name="altPhone">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SECTION 2: HOUSEHOLD INFORMATION -->
+                            <div class="mb-4">
+                                <h5 class="text-primary mb-3">Household Information</h5>
+                                
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="householdSize" class="form-label">Number of People in Household *</label>
+                                        <select class="form-select" id="householdSize" name="householdSize" required>
+                                            <option value="">-- Select --</option>
+                                            <option value="1">1 Person</option>
+                                            <option value="2">2 People</option>
+                                            <option value="3">3 People</option>
+                                            <option value="4">4 People</option>
+                                            <option value="5+">5+ People</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select household size.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="children" class="form-label">Do you have children? *</label>
+                                        <select class="form-select" id="children" name="children" required>
+                                            <option value="">-- Select --</option>
+                                            <option value="No">No</option>
+                                            <option value="Yes, under 5">Yes, under 5 years old</option>
+                                            <option value="Yes, 5-12">Yes, 5-12 years old</option>
+                                            <option value="Yes, over 12">Yes, over 12 years old</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select an option.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-1">
+                                    <div class="col-md-6">
+                                        <label for="otherPets" class="form-label">Do you have other pets? *</label>
+                                        <select class="form-select" id="otherPets" name="otherPets" required>
+                                            <option value="">-- Select --</option>
+                                            <option value="No">No</option>
+                                            <option value="Yes, dogs only">Yes, only dogs</option>
+                                            <option value="Yes, cats only">Yes, only cats</option>
+                                            <option value="Yes, dogs and cats">Yes, dogs and cats</option>
+                                            <option value="Yes, other">Yes, other animals</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select an option.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="housing" class="form-label">Type of Housing *</label>
+                                        <select class="form-select" id="housing" name="housing" required>
+                                            <option value="">-- Select --</option>
+                                            <option value="House with yard">House with yard</option>
+                                            <option value="House without yard">House without yard</option>
+                                            <option value="Apartment">Apartment</option>
+                                            <option value="Townhouse">Townhouse</option>
+                                            <option value="Farm">Farm/Rural property</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select housing type.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mt-1">
+                                    <div class="col-12">
+                                        <label for="yard" class="form-label">Yard Security (if applicable) *</label>
+                                        <select class="form-select" id="yard" name="yard" required>
+                                            <option value="">-- Select --</option>
+                                            <option value="Fully fenced">Fully fenced and secure</option>
+                                            <option value="Partially fenced">Partially fenced</option>
+                                            <option value="No fence">No fence</option>
+                                            <option value="Not applicable">Not applicable</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select yard security status.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SECTION 3: DOG PREFERENCES -->
+                            <div class="mb-4">
+                                <h5 class="text-primary mb-3">Dog Preferences</h5>
+                                
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="preferredBreed" class="form-label">Preferred Breed *</label>
+                                        <select class="form-select" id="preferredBreed" name="preferredBreed" required>
+                                            <option value="">-- Select --</option>
+                                            <option value="Any">Any breed</option>
+                                            <option value="Small dogs">Small dogs</option>
+                                            <option value="Medium dogs">Medium dogs</option>
+                                            <option value="Large dogs">Large dogs</option>
+                                            <option value="Specific breed">Specific breed (please specify below)</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select preferred dog size.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="age" class="form-label">Preferred Age *</label>
+                                        <select class="form-select" id="age" name="age" required>
+                                            <option value="">-- Select --</option>
+                                            <option value="Puppy">Puppy (under 1 year)</option>
+                                            <option value="Young">Young (1-3 years)</option>
+                                            <option value="Adult">Adult (3-7 years)</option>
+                                            <option value="Senior">Senior (7+ years)</option>
+                                            <option value="Any">Any age</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select preferred age.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <label for="specificBreed" class="form-label">If specific breed, please specify:</label>
+                                    <input type="text" class="form-control" id="specificBreed" name="specificBreed" placeholder="e.g., Golden Retriever, Husky, etc.">
+                                </div>
+                            </div>
+
+                            <!-- SECTION 4: EXPERIENCE & COMMITMENT -->
+                            <div class="mb-4">
+                                <h5 class="text-primary mb-3">Experience & Commitment</h5>
+                                
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label for="experience" class="form-label">Dog Ownership Experience *</label>
+                                        <select class="form-select" id="experience" name="experience" required>
+                                            <option value="">-- Select --</option>
+                                            <option value="First time">First time dog owner</option>
+                                            <option value="Some experience">Some experience (1-5 years)</option>
+                                            <option value="Experienced">Very experienced (5+ years)</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select your experience level.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <label for="reason" class="form-label">Why do you want to adopt? *</label>
+                                    <textarea class="form-control" id="reason" name="reason" rows="4" required></textarea>
+                                    <div class="invalid-feedback">
+                                        Please tell us why you want to adopt.
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="commitment" name="commitment" required>
+                                        <label class="form-check-label" for="commitment">
+                                            I commit to providing proper care, love, and attention to the adopted dog for its entire life *
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            You must confirm your commitment.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="homeVisit" name="homeVisit">
+                                        <label class="form-check-label" for="homeVisit">
+                                            I agree to allow a home visit before adoption approval
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SECTION 5: VETERINARY REFERENCE -->
+                            <div class="mb-4">
+                                <h5 class="text-primary mb-3">Veterinary Reference (if applicable)</h5>
+                                
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="vetName" class="form-label">Veterinarian Name</label>
+                                        <input type="text" class="form-control" id="vetName" name="vetName">
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="vetPhone" class="form-label">Veterinarian Phone</label>
+                                        <input type="tel" class="form-control" id="vetPhone" name="vetPhone">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FORM ACTIONS -->
+                            <div class="d-grid gap-2 d-sm-flex justify-content-center mt-5">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
+                                <button type="reset" class="btn btn-outline-primary btn-lg">Clear Form</button>
+                            </div>
+
+                            <div class="alert alert-info mt-4" role="alert">
+                                <strong>Note:</strong> After submitting your application, our team will review it and contact you within 2-3 business days. Approval is subject to home visit and reference verification.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <!-- Footer Column 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <h5>PawConnect Botswana</h5>
+                    <p>Your trusted partner in pet care and dog adoption. We're committed to finding loving homes for dogs in need.</p>
+                    <div class="footer-social">
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="Instagram">Instagram</a>
+                        <a href="#" title="Twitter">X</a>
+                        <a href="#" title="WhatsApp">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Footer Column 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dogs.html">Dogs for Adoption</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="adoption.html">Adoption Form</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Column 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="services.html">Dog Grooming</a></li>
+                        <li><a href="services.html">Vaccination</a></li>
+                        <li><a href="services.html">Dog Training</a></li>
+                        <li><a href="services.html">Vet Checkups</a></li>
+                        <li><a href="services.html">Pet Boarding</a></li>
+                        <li><a href="services.html">Daycare</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Column 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <h5>Contact Us</h5>
+                    <p>Gaborone, Botswana</p>
+                    <p>info@pawconnect.bw</p>
+                    <p>+267 77 347 057</p>
+                    <p>Mon-Sat: 9AM-6PM<br>Sunday: 10AM-4PM</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 PawConnect Botswana. All Rights Reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
