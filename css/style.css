@@ -1,7 +1,5 @@
-/* ========================================
-   PawConnect Botswana - Main Stylesheet
-   Modern, Responsive Design for Pet Care
-   ======================================== */
+/* PawConnect Botswana - Main Stylesheet
+   Modern, Responsive Design for Pet Care */
 
 :root {
     /* Color Palette - Pet-Friendly Theme */
@@ -17,9 +15,7 @@
     --white: #FFFFFF;
 }
 
-/* ========================================
-   Global Styles
-   ======================================== */
+/* Global Styles */
 
 * {
     margin: 0;
@@ -76,9 +72,7 @@ a:hover {
     text-decoration: none;
 }
 
-/* ========================================
-   Navigation Bar
-   ======================================== */
+/* Navigation Bar */
 
 .navbar {
     background-color: var(--white);
@@ -142,9 +136,7 @@ a:hover {
     }
 }
 
-/* ========================================
-   Footer Styles
-   ======================================== */
+/* Footer Styles */
 
 footer {
     background-color: var(--primary-color);
@@ -205,9 +197,7 @@ footer p {
     font-size: 0.9rem;
 }
 
-/* ========================================
-   Hero Section & Banners
-   ======================================== */
+/* Hero Section & Banners */
 
 .hero-section {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
@@ -280,9 +270,7 @@ footer p {
     }
 }
 
-/* ========================================
-   Cards & Content Sections
-   ======================================== */
+/* Cards & Content Sections */
 
 .card {
     border: none;
@@ -325,9 +313,7 @@ footer p {
     margin-bottom: 0.5rem;
 }
 
-/* ========================================
-   Section Spacing & Layout
-   ======================================== */
+/* Section Spacing & Layout */
 
 section {
     padding: 4rem 0;
@@ -360,9 +346,7 @@ section h2::after {
     background-color: var(--white);
 }
 
-/* ========================================
-   Buttons
-   ======================================== */
+/* Buttons */
 
 .btn-primary {
     background-color: var(--primary-color);
@@ -404,9 +388,7 @@ section h2::after {
     border-color: #5cb85c;
 }
 
-/* ========================================
-   Forms & Inputs
-   ======================================== */
+/* Forms & Inputs */
 
 .form-control, .form-select {
     border: 2px solid #E0E0E0;
@@ -461,9 +443,7 @@ textarea.form-control {
     margin-top: 0.25rem;
 }
 
-/* ========================================
-   Dog Cards - Adoption Section
-   ======================================== */
+/* Dog Cards - Adoption Section */
 
 .dog-card {
     border: none;
@@ -541,9 +521,7 @@ textarea.form-control {
     line-height: 1.6;
 }
 
-/* ========================================
-   Gallery Styles
-   ======================================== */
+/* Gallery Styles */
 
 .gallery-container {
     display: grid;
@@ -595,9 +573,7 @@ textarea.form-control {
     color: white;
 }
 
-/* ========================================
-   Testimonials
-   ======================================== */
+/* Testimonials */
 
 .testimonial-card {
     background-color: var(--white);
@@ -639,9 +615,7 @@ textarea.form-control {
     letter-spacing: 0.2rem;
 }
 
-/* ========================================
-   Carousel & Sliders
-   ======================================== */
+/* Carousel & Sliders */
 
 .carousel {
     border-radius: 15px;
@@ -677,9 +651,7 @@ textarea.form-control {
     background-color: rgba(139, 111, 71, 0.7);
 }
 
-/* ========================================
-   Animations
-   ======================================== */
+/* Animations */
 
 @keyframes fadeInUp {
     from {
@@ -739,9 +711,7 @@ textarea.form-control {
     animation: bounce 0.6s ease-out;
 }
 
-/* ========================================
-   Service Icons & Features
-   ======================================== */
+/* Service Icons & Features */
 
 .service-icon {
     font-size: 3.5rem;
@@ -763,9 +733,7 @@ textarea.form-control {
     margin: 1rem 0;
 }
 
-/* ========================================
-   Process Steps
-   ======================================== */
+/* Process Steps */
 
 .process-step {
     position: relative;
@@ -812,9 +780,7 @@ textarea.form-control {
     display: none;
 }
 
-/* ========================================
-   Contact Information
-   ======================================== */
+/* Contact Information */
 
 .contact-info {
     display: flex;
@@ -845,9 +811,7 @@ textarea.form-control {
     color: #666;
 }
 
-/* ========================================
-   Loading & Utility Classes
-   ======================================== */
+/* Loading & Utility Classes */
 
 .text-primary {
     color: var(--primary-color) !important;
@@ -877,9 +841,7 @@ textarea.form-control {
     border-radius: 15px !important;
 }
 
-/* ========================================
-   Responsive Design - Tablets
-   ======================================== */
+/* Responsive Design - Tablets */
 
 @media (max-width: 991px) {
     section {
@@ -896,9 +858,7 @@ textarea.form-control {
     }
 }
 
-/* ========================================
-   Responsive Design - Mobile
-   ======================================== */
+/* Responsive Design - Mobile */
 
 @media (max-width: 576px) {
     :root {
@@ -971,9 +931,7 @@ textarea.form-control {
     }
 }
 
-/* ========================================
-   Accessibility
-   ======================================== */
+/* Accessibility */
 
 .sr-only {
     position: absolute;

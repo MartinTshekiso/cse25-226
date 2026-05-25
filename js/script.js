@@ -1,9 +1,6 @@
-// ========================================
-// PawConnect Botswana - JavaScript File
-// Interactivity & Form Validation
-// ========================================
 
-// ======== Page Initialization ========
+
+// Page Initialization
 document.addEventListener('DOMContentLoaded', function() {
     initializeFormValidation();
     initializeAnimations();
@@ -12,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setActiveNavLink();
 });
 
-// ======== Form Validation ========
+// Form Validation
 // Initialize Bootstrap form validation
 // Prevents form submission if form is invalid
 function initializeFormValidation() {
@@ -29,7 +26,7 @@ function initializeFormValidation() {
     });
 }
 
-// ======== Scroll Animations ========
+// Scroll Animations
 // Add fade-in animations to elements when they scroll into view
 // Improves visual appeal and user engagement
 function initializeAnimations() {
@@ -53,7 +50,7 @@ function initializeAnimations() {
     });
 }
 
-// ======== Gallery Lightbox ========
+// Gallery Lightbox
 // Initialize gallery with lightbox/modal functionality
 // Clicking an image opens it in a fullscreen modal
 function initializeGallery() {
@@ -67,6 +64,7 @@ function initializeGallery() {
     galleryItems.forEach((item, index) => {
         item.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             openGalleryModal(this, index, galleryItems.length);
         });
     });
@@ -123,11 +121,11 @@ function openGalleryModal(item, index, total) {
     };
     
     // Show modal using Bootstrap
-    const bsModal = new bootstrap.Modal(modal);
+    const bsModal = bootstrap.Modal.getOrCreateInstance(modal);
     bsModal.show();
 }
 
-// ======== Carousel Auto-play ========
+// Carousel Auto-play
 // Initialize carousel auto-play functionality
 // Carousels will automatically rotate through slides
 function initializeCarousel() {
@@ -153,7 +151,7 @@ function initializeCarousel() {
     });
 }
 
-// ======== Navigation Active Link ========
+// Navigation Active Link
 // Set active navigation link based on current page
 // Highlights the current page in the navigation bar
 function setActiveNavLink() {
@@ -175,7 +173,7 @@ function setActiveNavLink() {
     });
 }
 
-// ======== Adoption Form Handler ========
+// Adoption Form Handler
 // Handle adoption form submission
 // Validates form and shows success message
 function handleAdoptionSubmit(event) {
@@ -195,7 +193,7 @@ function handleAdoptionSubmit(event) {
     form.classList.add('was-validated');
 }
 
-// ======== Contact Form Handler ========
+// Contact Form Handler
 // Handle contact form submission
 // Validates form and shows success message
 function handleContactSubmit(event) {
@@ -215,7 +213,7 @@ function handleContactSubmit(event) {
     form.classList.add('was-validated');
 }
 
-// ======== Success Message Display ========
+// Success Message Display
 // Display a success message at the top of the page
 // Auto-dismisses after 5 seconds
 function showSuccessMessage(message) {
@@ -244,9 +242,7 @@ function showSuccessMessage(message) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ======== Smooth Scroll for Anchors ========
-// Enable smooth scrolling for all anchor links
-// (Already handled by CSS 'scroll-behavior: smooth')
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -260,7 +256,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ======== Image Preloading ========
+// Image Preloading
 // Preload images for gallery and carousel
 // Improves performance and user experience
 function preloadImages() {
@@ -277,9 +273,7 @@ function preloadImages() {
     });
 }
 
-// ======== Testimonials Carousel (if exists) ========
-// Rotate testimonials automatically
-// Shows different testimonials at intervals
+
 function initializeTestimonialRotation() {
     const testimonials = document.querySelectorAll('.testimonial-card');
     if (testimonials.length <= 1) return;
@@ -307,7 +301,7 @@ function initializeTestimonialRotation() {
     }
 }
 
-// ======== Mobile Menu Collapse ========
+// Mobile Menu Collapse
 // Close mobile menu when a link is clicked
 // Improves mobile user experience
 document.querySelectorAll('.nav-link').forEach(link => {
@@ -321,9 +315,8 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// ======== Back to Top Button ========
-// Show/hide back-to-top button based on scroll position
-// Click to smoothly scroll back to top
+// Back to Top Button
+
 function initializeBackToTop() {
     const backToTopBtn = document.querySelector('#backToTopBtn');
     if (!backToTopBtn) {
