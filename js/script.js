@@ -213,6 +213,24 @@ function handleContactSubmit(event) {
     form.classList.add('was-validated');
 }
 
+// Feedback Form Handler
+// Handles feedback form submission similarly to contact handler
+function handleFeedbackSubmit(event) {
+    const form = event.target;
+
+    if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+    } else {
+        event.preventDefault();
+        showSuccessMessage('Thank you for your feedback! We appreciate your input.');
+        form.reset();
+        form.classList.remove('was-validated');
+    }
+
+    form.classList.add('was-validated');
+}
+
 // Success Message Display
 // Display a success message at the top of the page
 // Auto-dismisses after 5 seconds
